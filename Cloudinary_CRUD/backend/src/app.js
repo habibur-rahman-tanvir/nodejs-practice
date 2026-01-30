@@ -1,6 +1,5 @@
 import express from "express";
 import photoRoute from "./routes/photo.route.js";
-import upload from "./middleware/upload.js";
 
 const app = express();
 
