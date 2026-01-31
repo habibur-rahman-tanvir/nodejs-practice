@@ -4,12 +4,33 @@ import cloudinary from "../config/cloudinary.js";
  * @type {import('express').RequestHandler}
  */
 const getAllPhotos = async (req, res) => {
+  let arr = [];
+  const query = "q_12";
+
   const result = await cloudinary.search
     .expression("folder:photos")
     .sort_by("created_at", "desc")
-    .max_results(30)
+    .max_results(15)
     .execute();
-  res.json(result);
+
+  if (result.resources.length > 0) {
+    arr = result.resources.map((item) => {
+      const preview_url = item.url.replace(
+        /image\/upload\/([^/]+)\//,
+        `image/upload/${query}/`,
+      );
+      return {
+        filename: item.filename,
+        display_name: item.display_name,
+        format: item.format,
+        url: item.url,
+        preview_url,
+        public_id: item.public_id,
+      };
+    });
+  }
+
+  res.json({ total_count: result.total_count, items: arr });
 };
 
 /**

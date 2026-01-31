@@ -1,8 +1,8 @@
 const Header = () => {
   return (
-    <header className="text-2xl py-2 rounded-b-2xl italic shadow-sm/12 bg-white/40 text-center uppercase font-semibold text-purple-600 text-shadow-md text-shadow-purple-300">
+    <header className="py-2 text-2xl italic text-center text-purple-600 uppercase rounded-b-2xl shadow-sm/12 bg-white/40 font-extralight text-shadow-md text-shadow-purple-300">
       Cloudinary{" "}
-      <span className="text-white not-italic isolate after:rounded-xs text-shadow-none relative after:-inset-0.5 after:-skew-1 after:bg-pink-500 after:absolute after:-z-1">
+      <span className="relative font-serif not-italic font-bold text-white isolate after:rounded-xs text-shadow-none after:-inset-1 after:-skew-x-10 after:bg-pink-500 after:absolute after:-z-1">
         photo
       </span>{" "}
       management
